@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: react-portfolio
+    env: static
+    static_publish_path: build
+    build_command: npm install && npm run build
+    branch: main
+    plan: free
+    autoDeploy: true
+
+  envVars:
+    - key: REACT_APP_ENV
+      value: production
