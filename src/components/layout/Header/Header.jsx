@@ -3,18 +3,21 @@ import { Link } from 'react-router'
 import Main from '../../../pages/Main/Main'
 const Header = () => {
   const HeaderMenu = [
-    { name: 'Home', link: '#Home' },
-    { name: 'About', link: '#About' },
-    { name: 'Skills', link: '#Skills' },
-    { name: 'Experience', link: '#Experience' },
-    { name: 'Projects', link: '#Projects' },
-    { name: 'Services', link: '#Services' },
-    { name: 'Contact', link: '#Contact' },
+    { name: 'Home', link: '#hero' },
+    { name: 'About', link: '#about' },
+    { name: 'Skills', link: '#skills' },
+    { name: 'Experience', link: '#experience' },
+    { name: 'Projects', link: '#projects' },
+    // { name: 'Services', link: '#services' },
+    { name: 'Contact', link: '#contact' },
   ]
   // Mobile View
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+
+  // New state for selected section
+  const [selectedSection, setSelectedSection] = useState('');
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -75,13 +78,10 @@ const Header = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#hero" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-                <a href="#about" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                <a href="#skills" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
-                <a href="#experience" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
-                <a href="#projects" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
-                {/* <a href="#services" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a> */}
-                <a href="#contact" className="text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                {HeaderMenu.map((item, index) => (
+                  <a key={index} href={item.link} className={`text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors `}>{item.name}</a>
+                  // <a key={index} href={item.link} onClick={() => setSelectedSection(item.name)} className={`text-[rgba(245,245,245,1)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors ${selectedSection === item.name ? 'border border-white' : ''}`}>{item.name}</a>
+                ))}
               </div>
             </div>
             <div className="md:hidden">
@@ -95,13 +95,9 @@ const Header = () => {
         </div>
         <div id="mobile-menu" ref={menuRef} className={`md:hidden bg-neutral-900 ${isOpen ? "block" : "hidden"} `}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#hero" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="#about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="#skills" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-            <a href="#experience" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
-            <a href="#projects" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-            <a href="#services" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
-            <a href="#contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            {HeaderMenu.map((item, index) => (
+              <a key={index} href={item.link} onClick={() => setSelectedSection(item.name)} className={`text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${selectedSection === item.name ? 'border-b-2 border-white' : ''}`}>{item.name}</a>
+            ))}
           </div>
         </div>
       </nav>

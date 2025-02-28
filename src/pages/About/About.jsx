@@ -36,9 +36,9 @@ const About = () => {
             </div>
 
             <div className="lg:ml-12 animate__animated animate__fadeInRight">
-              <div className="bg-neutral-800 p-8 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-neutral-900 mb-4 text-white">Quick Facts</h3>
-                <ul className="space-y-4">
+              <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-white mb-4">Quick Facts</h3>
+                <ul className="space-y-4 text-gray-300">
                   <li className="flex items-center">
                     <svg className="h-5 w-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>

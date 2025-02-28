@@ -1,4 +1,5 @@
 import React from 'react'
+import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 import ProjectLinks from '../../components/common/ProjectLinks/ProjectLinks'
 const Projects = () => {
   return (
@@ -102,14 +103,7 @@ const Projects = () => {
     // new design
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-tg7ma7jf">
-        <div className="text-center mb-16 animate__animated animate__fadeIn">
-          <h2 className="text-3xl font-extrabold text-[#d3fbd8] sm:text-4xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <div className="mt-4 max-w-3xl mx-auto">
-            <div className="h-1.5 w-24 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
-          </div>
-        </div>
+        <HeaderTitle title="Featured Projects" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp border border-neutral-700">

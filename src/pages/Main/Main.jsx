@@ -6,7 +6,7 @@ const Main = () => {
       <section id="hero" className="min-h-[70vh] pt-16 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl animate__animated animate__fadeInDown">
+            <h1 className="text-4xl tracking-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4CAF50] to-[#2196F3] sm:text-5xl md:text-6xl animate__animated animate__fadeInDown">
               <span className="block">ReactJS Developer</span>
               <span className="block text-[#d3fbd8]">Building Modern Web Solutions</span>
             </h1>
@@ -15,13 +15,17 @@ const Main = () => {
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate__animated animate__fadeInUp">
               <div className="rounded-md shadow">
-                <a href="#contact" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#18b385]/80 hover:bg-[#18b385]/90 md:py-4 md:text-lg md:px-10 transform hover:scale-105 hover:rotate-2 transition-transform duration-300">
+                <a href="#contact" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-[#00bcd4] to-[#0097a7] hover:bg-gradient-to-r hover:from-[#00bcd4] hover:to-[#00bcd4] md:py-4 md:text-lg md:px-10 transform hover:scale-105 hover:rotate-2 transition-transform duration-300 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_rgba(255,255,255,0.1)_inset]">
                   Get in touch
+                  <span className='absolute inset-x-0 -bottom-px bg-gradient-to-r from-[#00bcd4] via-[#00bcd4] to-transparent h-px w-3/4 mx-auto'></span>
+                  <span className='absolute inset-x-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -bottom-px bg-gradient-to-r from-[#00bcd4] via-[#00bcd4] to-transparent h-[4px] w-full mx-auto blur-sm'></span>
                 </a>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
-                <a href="#projects" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#007d53] hover:bg-[#007d53]/90 md:py-4 md:text-lg md:px-10 transform hover:scale-105 hover:rotate-2 transition-transform duration-300"> {/*text-blue-600*/}
+                <a href="#projects" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-[#2196F3] to-[#1e88e5] hover:bg-[#2196F3]/90 md:py-4 md:text-lg md:px-10 transform hover:scale-105 hover:rotate-2 transition-transform duration-300">
                   View Projects
+                  <span className='absolute inset-x-0 -bottom-px bg-gradient-to-r from-[#2196F3] via-[#00bcd4] to-transparent h-px w-3/4 mx-auto'></span>
+                  <span className='absolute inset-x-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -bottom-px bg-gradient-to-r from-[#2196F3] via-[#00bcd4] to-transparent h-[4px] w-full mx-auto blur-sm'></span>
                 </a>
               </div>
             </div>

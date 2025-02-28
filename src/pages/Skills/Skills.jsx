@@ -114,7 +114,7 @@ const Skills = () => {
                         <span className="text-blue-400">{skillItem.percentage}%</span>
                       </div>
                       <div className="w-full bg-neutral-700 rounded-full h-2">
-                        <div className={`bg-blue-500 h-2 rounded-full bg-gradient-to-r from-[#86d17b] to-[#21a084] w-[${skillItem.percentage}%]`}></div>
+                        <div className={`bg-blue-500 h-2 rounded-full`} style={{ width: `${skillItem.percentage}%`, background: 'linear-gradient(to right, #86d17b, #21a084)' }}></div>
                       </div>
                     </div>
                   ))}
