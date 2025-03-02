@@ -1,197 +1,381 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 import ProjectLinks from '../../components/common/ProjectLinks/ProjectLinks'
+import { FiArrowLeft, FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+
+// Project data array with 10+ projects and image URLs
+const projectsData = [
+  {
+    id: 1,
+    title: "E-Commerce Dashboard",
+    description: "A comprehensive admin dashboard with analytics, order management, and inventory tracking.",
+    technologies: ["React.js", "Redux Toolkit", "Material UI", "Chart.js"],
+    demoLink: "https://ecommerce-dashboard-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/ecommerce-dashboard",
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
+  },
+  {
+    id: 2,
+    title: "Task Management App",
+    description: "A collaborative task management platform with real-time updates and team features.",
+    technologies: ["React.js", "GraphQL", "Tailwind CSS", "PostgreSQL"],
+    demoLink: "https://task-management-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/task-management",
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+  },
+  {
+    id: 3,
+    title: "Social Media Platform",
+    description: "A social networking app with real-time chat and post features.",
+    technologies: ["React.js", "Redux", "Prisma", "Docker"],
+    demoLink: "https://social-media-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/social-media-platform",
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  },
+  {
+    id: 4,
+    title: "Weather Forecast App",
+    description: "Real-time weather forecasting application with location-based services and interactive maps.",
+    technologies: ["React.js", "OpenWeather API", "Leaflet", "Tailwind CSS"],
+    demoLink: "https://weather-forecast-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/weather-forecast",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    id: 5,
+    title: "Recipe Finder",
+    description: "Search and discover recipes based on ingredients, dietary restrictions, and cuisine preferences.",
+    technologies: ["React.js", "Spoonacular API", "Styled Components", "Firebase"],
+    demoLink: "https://recipe-finder-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/recipe-finder",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    id: 6,
+    title: "Fitness Tracker",
+    description: "Track workouts, set goals, and monitor progress with detailed analytics and visualizations.",
+    technologies: ["React Native", "Redux", "Firebase", "D3.js"],
+    demoLink: "https://fitness-tracker-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/fitness-tracker",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    id: 7,
+    title: "Budget Management Tool",
+    description: "Personal finance application for budget planning, expense tracking, and financial goal setting.",
+    technologies: ["Vue.js", "Vuex", "MongoDB", "Express.js"],
+    demoLink: "https://budget-management-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/budget-management",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80"
+  },
+  {
+    id: 8,
+    title: "Movie Recommendation System",
+    description: "AI-powered movie recommendation engine based on user preferences and viewing history.",
+    technologies: ["Python", "TensorFlow", "Flask", "React.js"],
+    demoLink: "https://movie-recommendation-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/movie-recommendation",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80"
+  },
+  {
+    id: 9,
+    title: "Real Estate Marketplace",
+    description: "Platform for buying, selling, and renting properties with virtual tours and mortgage calculators.",
+    technologies: ["Next.js", "MongoDB", "Mapbox", "Tailwind CSS"],
+    demoLink: "https://real-estate-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/real-estate-marketplace",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1073&q=80"
+  },
+  {
+    id: 10,
+    title: "Language Learning App",
+    description: "Interactive language learning platform with speech recognition and progress tracking.",
+    technologies: ["React.js", "Node.js", "Web Speech API", "MongoDB"],
+    demoLink: "https://language-learning-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/language-learning-app",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+  },
+  {
+    id: 11,
+    title: "Job Board Portal",
+    description: "Job listing and application platform with resume builder and company profiles.",
+    technologies: ["React.js", "Express.js", "PostgreSQL", "AWS S3"],
+    demoLink: "https://job-board-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/job-board-portal",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+  },
+  {
+    id: 12,
+    title: "Cryptocurrency Dashboard",
+    description: "Real-time cryptocurrency tracking with price alerts, portfolio management, and market analysis.",
+    technologies: ["React.js", "CoinGecko API", "Socket.io", "Chart.js"],
+    demoLink: "https://crypto-dashboard-demo.netlify.app",
+    githubLink: "https://github.com/yourusername/crypto-dashboard",
+    featured: false,
+    imageUrl: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  }
+];
+
 const Projects = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filter, setFilter] = useState('all'); // 'all', 'featured', or specific technology
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const [hoveredProject, setHoveredProject] = useState(null);
+  const projectsPerPage = 4; // Reduced for larger cards
+
+  // Filter projects based on selected filter
+  useEffect(() => {
+    let result = projectsData;
+
+    if (filter === 'featured') {
+      result = projectsData.filter(project => project.featured);
+    } else if (filter !== 'all') {
+      // Filter by technology
+      result = projectsData.filter(project =>
+        project.technologies.some(tech =>
+          tech.toLowerCase().includes(filter.toLowerCase())
+        )
+      );
+    }
+
+    setFilteredProjects(result);
+    setCurrentPage(1); // Reset to first page when filter changes
+  }, [filter]);
+
+  // Get current projects for pagination
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Get unique technologies for filter dropdown
+  const allTechnologies = [...new Set(projectsData.flatMap(project => project.technologies))];
+
   return (
-    // old design
-    // <div>
-    //   <section id="projects" className="py-20 bg-neutral-900">
-    //     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    //       <div className="text-center mb-16 animate__animated animate__fadeIn">
-    //         <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-    //           Featured Projects
-    //         </h2>
-    //         <div className="mt-4 max-w-3xl mx-auto">
-    //           <div className="h-1 w-20 bg-blue-500 mx-auto"></div>
-    //         </div>
-    //       </div>
-
-    //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    //         <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp">
-    //           <div className="p-6">
-    //             <h3 className="text-xl font-bold text-white mb-2">Youtube Clone</h3>
-    //             <p className="text-neutral-400 mb-4">A clone of the popular video-sharing platform, YouTube, built with React.js, Redux Toolkit, and Tailwind CSS.</p>
-    //             <div className="flex flex-wrap gap-2 mb-4">
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">React.js</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Redux Toolkit</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Tailwind CSS</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">YouTube API</span>
-    //             </div>
-    //             <ProjectLinks
-    //               demoLink="https://clinquant-chebakia-d8a963.netlify.app/"
-    //             />
-    //           </div>
-    //         </div>
-
-    //         <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp [animation-delay:200ms]">
-    //           <div className="p-6">
-    //             <h3 className="text-xl font-bold text-white mb-2">Task Management App</h3>
-    //             <p className="text-neutral-400 mb-4">A collaborative task management platform with real-time updates and team features.</p>
-    //             <div className="flex flex-wrap gap-2 mb-4">
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">React.js</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">GraphQL</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Tailwind CSS</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">PostgreSQL</span>
-    //             </div>
-    //             <div className="flex justify-between">
-    //               <a href="#" className="text-blue-500 hover:text-blue-400 flex items-center">
-    //                 <span>Live Demo</span>
-    //                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-    //                 </svg>
-    //               </a>
-    //               <a href="#" className="text-blue-500 hover:text-blue-400 flex items-center">
-    //                 <span>GitHub</span>
-    //                 <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
-    //                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-    //                 </svg>
-    //               </a>
-    //             </div>
-    //           </div>
-    //         </div>
-
-    //         <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp [animation-delay:400ms]">
-    //           <div className="p-6">
-    //             <h3 className="text-xl font-bold text-white mb-2">Social Media Platform</h3>
-    //             <p className="text-neutral-400 mb-4">A social networking app with real-time chat and post features.</p>
-    //             <div className="flex flex-wrap gap-2 mb-4">
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">React.js</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Redux</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Prisma</span>
-    //               <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Docker</span>
-    //             </div>
-    //             <div className="flex justify-between">
-    //               <a href="#" className="text-blue-500 hover:text-blue-400 flex items-center">
-    //                 <span>Live Demo</span>
-    //                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-    //                 </svg>
-    //               </a>
-    //               <a href="#" className="text-blue-500 hover:text-blue-400 flex items-center">
-    //                 <span>GitHub</span>
-    //                 <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
-    //                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-    //                 </svg>
-    //               </a>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-
-    //       <div className="mt-12 text-center">
-    //         <a href="https://github.com/yourusername" target="_blank" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300">
-    //           View More Projects
-    //           <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-    //             <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-    //           </svg>
-    //         </a>
-    //       </div>
-    //     </div>
-    //   </section>
-    // </div>
-
-    // new design
     <section id="projects" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-tg7ma7jf">
-        <HeaderTitle title="Featured Projects" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HeaderTitle title="My Works" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp border border-neutral-700">
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-3 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">E-Commerce Dashboard</h3>
-              <p className="text-neutral-300 mb-6 leading-relaxed">A comprehensive admin dashboard with analytics, order management, and inventory tracking.</p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">React.js</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Redux Toolkit</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Material UI</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Chart.js</span>
-              </div>
-              <div className="flex justify-between">
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">Live Demo</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">GitHub</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+        {/* Pagination Controls - Top */}
+        <div className="flex justify-between items-center mb-8">
+          <div className="text-[var(--color-text-primary)] text-xl font-serif">
+            <span className="font-light">Projects</span>
+            <span className="mx-2 opacity-50">/</span>
+            <span className="font-medium">{filter === 'all' ? 'All' : filter === 'featured' ? 'Featured' : filter}</span>
           </div>
-
-          <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp border border-neutral-700 " style={{ animationDelay: '0.2s' }}>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-3 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Task Management App</h3>
-              <p className="text-neutral-300 mb-6 leading-relaxed">A collaborative task management platform with real-time updates and team features.</p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">React.js</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">GraphQL</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Tailwind CSS</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">PostgreSQL</span>
-              </div>
-              <div className="flex justify-between">
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">Live Demo</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">GitHub</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-                  </svg>
-                </a>
-              </div>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={prevPage}
+              disabled={currentPage === 1}
+              className={`p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === 1 ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
+              aria-label="Previous page"
+            >
+              <FiArrowLeft size={24} />
+            </button>
+            <div className="flex items-center space-x-2">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  onClick={() => paginate(i + 1)}
+                  className={`w-3 h-3 rounded-full transition-all ${currentPage === i + 1
+                    ? 'bg-[var(--color-accent-primary)]'
+                    : 'bg-[var(--color-text-secondary)] opacity-50 hover:opacity-100'}`}
+                  aria-label={`Page ${i + 1}`}
+                />
+              ))}
             </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp border border-neutral-700" style={{ animationDelay: '0.4s' }}>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-3 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Social Media Platform</h3>
-              <p className="text-neutral-300 mb-6 leading-relaxed">A social networking app with real-time chat and post features.</p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">React.js</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Redux</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Prisma</span>
-                <span className="px-4 py-1.5 bg-gradient-to-r from-blue-900 to-purple-900 text-blue-200 rounded-full text-sm font-medium">Docker</span>
-              </div>
-              <div className="flex justify-between">
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">Live Demo</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-                <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
-                  <span className="font-medium">GitHub</span>
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+            <button
+              onClick={nextPage}
+              disabled={currentPage === totalPages}
+              className={`p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === totalPages ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
+              aria-label="Next page"
+            >
+              <FiArrowRight size={24} />
+            </button>
           </div>
         </div>
 
+        {/* Filter Controls */}
+        <div className="mb-12 flex flex-wrap justify-start gap-4">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-6 py-2 rounded-full transition-all ${filter === 'all'
+              ? 'bg-[var(--color-light)] text-[var(--color-dark)] font-medium'
+              : 'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-text-secondary)] hover:border-[var(--color-text-primary)]'}`}
+          >
+            All Projects
+          </button>
+          <button
+            onClick={() => setFilter('featured')}
+            className={`px-6 py-2 rounded-full transition-all ${filter === 'featured'
+              ? 'bg-[var(--color-light)] text-[var(--color-dark)] font-medium'
+              : 'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-text-secondary)] hover:border-[var(--color-text-primary)]'}`}
+          >
+            Featured
+          </button>
+
+          {/* Technology filters */}
+          {allTechnologies.slice(0, 5).map((tech, index) => (
+            <button
+              key={index}
+              onClick={() => setFilter(tech)}
+              className={`px-6 py-2 rounded-full transition-all ${filter === tech
+                ? 'bg-[var(--color-light)] text-[var(--color-dark)] font-medium'
+                : 'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-text-secondary)] hover:border-[var(--color-text-primary)]'}`}
+            >
+              {tech}
+            </button>
+          ))}
+
+          {/* More filters dropdown if needed */}
+          {allTechnologies.length > 5 && (
+            <div className="relative">
+              <select
+                onChange={(e) => setFilter(e.target.value)}
+                className="appearance-none bg-transparent text-[var(--color-text-primary)] border border-[var(--color-text-secondary)] px-6 py-2 pr-8 rounded-full hover:border-[var(--color-text-primary)] focus:outline-none"
+              >
+                <option value="" disabled selected>More...</option>
+                {allTechnologies.slice(5).map((tech, index) => (
+                  <option key={index} value={tech} className="bg-[var(--color-dark)]">
+                    {tech}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[var(--color-text-primary)]">
+                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Projects Grid - Modern Image-focused Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {currentProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative h-[500px] rounded-xl overflow-hidden group"
+              onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              {/* Project Image */}
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)] via-[var(--color-dark-accent)]/70 to-transparent opacity-90"></div>
+              </div>
+
+              {/* Project Info */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <h3 className="text-3xl font-serif font-bold text-[var(--color-text-primary)] mb-3">{project.title}</h3>
+                <p className="text-[var(--color-text-secondary)] mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-[var(--color-light)]/10 backdrop-blur-sm text-[var(--color-text-primary)] rounded-full text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="px-3 py-1 bg-[var(--color-light)]/10 backdrop-blur-sm text-[var(--color-text-primary)] rounded-full text-xs font-medium">
+                      +{project.technologies.length - 3} more
+                    </span>
+                  )}
+                </div>
+
+                {/* Links */}
+                <div className="flex space-x-4">
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-[var(--color-dark)] bg-[var(--color-light)] px-4 py-2 rounded-full hover:bg-[var(--color-light-accent)] transition-colors"
+                  >
+                    <FiExternalLink className="mr-2" />
+                    <span>Live Demo</span>
+                  </a>
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-[var(--color-text-primary)] bg-[var(--color-light)]/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-[var(--color-light)]/20 transition-colors"
+                  >
+                    <FiGithub className="mr-2" />
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* View Details Button - Appears on Hover */}
+              <div
+                className={`absolute top-4 right-4 transition-opacity duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                  }`}
+              >
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[var(--color-light)]/20 backdrop-blur-sm rounded-full hover:bg-[var(--color-light)]/30 transition-colors"
+                >
+                  <svg className="w-6 h-6 text-[var(--color-text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* View All Projects Link */}
         <div className="mt-16 text-center">
-          <a href="https://github.com/yourusername" target="_blank" className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-            View More Projects
-            <svg className="ml-3 w-6 h-6 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 text-lg font-medium rounded-full text-[var(--color-dark)] bg-[var(--color-light)] hover:bg-[var(--color-light-accent)] transition-colors duration-300"
+          >
+            View All Projects on GitHub
+            <svg className="ml-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
             </svg>
           </a>

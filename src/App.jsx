@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <div className='bg-[#0F1115] relative min-h-screen'> {/* Added relative and min-h-screen */}
+      <div className='bg-[var(--color-background)] relative min-h-screen'> {/* Updated to use CSS variable */}
         <Header />
         <About />
         <Skills />

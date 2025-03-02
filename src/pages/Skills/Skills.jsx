@@ -104,17 +104,17 @@ const Skills = () => {
           <HeaderTitle title="Technical Skills" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-neutral-800 p-6 rounded-lg shadow-lg animate__animated animate__fadeInUp">
-                <h3 className="text-xl font-bold text-white mb-4">{skill.name}</h3>
+              <div key={index} className="bg-[var(--color-card-bg)] p-6 rounded-lg shadow-lg animate__animated animate__fadeInUp">
+                <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">{skill.name}</h3>
                 <div className="space-y-4">
                   {skill.skills.map((skillItem, skillIndex) => (
                     <div key={skillIndex} className="skill-item">
                       <div className="flex justify-between mb-1">
-                        <span className="text-white">{skillItem.name}</span>
-                        <span className="text-blue-400">{skillItem.percentage}%</span>
+                        <span className="text-[var(--color-text-primary)]">{skillItem.name}</span>
+                        <span className="text-[var(--color-accent-primary)]">{skillItem.percentage}%</span>
                       </div>
-                      <div className="w-full bg-neutral-700 rounded-full h-2">
-                        <div className={`bg-blue-500 h-2 rounded-full`} style={{ width: `${skillItem.percentage}%`, background: 'linear-gradient(to right, #86d17b, #21a084)' }}></div>
+                      <div className="w-full bg-[var(--color-dark)] rounded-full h-2">
+                        <div className={`bg-[var(--color-accent-primary)] h-2 rounded-full`} style={{ width: `${skillItem.percentage}%`, background: 'linear-gradient(to right, var(--color-light-accent), var(--color-mid))' }}></div>
                       </div>
                     </div>
                   ))}

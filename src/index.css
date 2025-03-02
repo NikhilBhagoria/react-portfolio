@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/*f3f9d2-cbeaa6-c0d684-ff595e-1982c4 */
+:root {
+    /* Primary color palette */
+    --color-light: #f3f9d2;
+    --color-light-accent: #cbeaa6;
+    --color-mid: #c0d684;
+    --color-accent: #ff595e;
+    --color-dark: #1982c4;
+
+    /* Functional colors */
+    --color-background: var(--color-light);
+    --color-text-primary: #333333;
+    --color-text-secondary: var(--color-dark);
+    --color-accent-primary: var(--color-accent);
+    --color-accent-secondary: var(--color-dark);
+    --color-button: var(--color-dark);
+    --color-button-hover: #1668a0;
+    --color-card-bg: #ffffff;
+    --color-card-hover: rgba(203, 234, 166, 0.2);
+    --color-gradient-start: var(--color-accent);
+    --color-gradient-end: var(--color-dark);
+}
+
 .scrollbar-hide {
     -ms-overflow-style: none;
     /* IE and Edge */
