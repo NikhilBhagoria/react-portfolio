@@ -26,25 +26,32 @@ const Contact = () => {
             <div className="animate__animated animate__fadeInLeft">
               <div className="bg-[var(--color-card-bg)] p-8 rounded-lg shadow-lg">
                 <form id="contactForm" className="space-y-6" onSubmit={handleSubmit}>
+                  <LabelledInput label="Name" type="text" value={formData.name} onChange={handleChange} />
+                  <LabelledInput label="Email" type="email" value={formData.email} onChange={handleChange} />
+                  <LabelledInput label="Subject" type="text" value={formData.subject} onChange={handleChange} />
+                  <LabelledInput label="Message" type="textarea" value={formData.message} onChange={handleChange} />
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[var(--color-text-primary)]">Name</label>
-                    <input type="text" value={formData.name} onChange={handleChange} id="name" name="name" required="" className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[var(--color-text-primary)]">Email</label>
-                    <input type="email" value={formData.email} onChange={handleChange} id="email" name="email" required="" className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-[var(--color-text-primary)]">Subject</label>
-                    <input type="text" value={formData.subject} onChange={handleChange} id="subject" name="subject" required="" className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[var(--color-text-primary)]">Message</label>
-                    <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows="4" required="" className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
-                  </div>
-                  <div>
-                    <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[var(--color-button)] hover:bg-[var(--color-button-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-primary)] transition-colors duration-300">
-                      Send Message
+                    <button
+                      type="submit"
+                      className="w-full group flex justify-center items-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-[var(--color-button-text)] bg-[var(--color-button-bg)] border-2 border-[var(--color-button-border)] transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={false}
+                    >
+                      <span className="transition-transform duration-300 group-hover:mr-1 group-hover:border-b-2 group-hover:border-[var(--color-button-border)]">
+                        Send Message
+                      </span>
+                      <svg
+                        className="w-4 h-4 opacity-0 -mr-6 group-hover:mr-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
                     </button>
                   </div>
                 </form>
@@ -106,6 +113,16 @@ const Contact = () => {
           </div>
         </div>
       </section>
+    </div>
+  )
+}
+
+const LabelledInput = ({ label, type, value, onChange, required = true }) => {
+  return (
+    <div>
+      <label htmlFor={label} className="block text-sm font-medium text-[var(--color-text-primary)]">{label}</label>
+      {type === "textarea" ? <textarea value={value} onChange={onChange} id={label} name={label} required={required} className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
+        : <input type={type} value={value} onChange={onChange} id={label} name={label} required={required} className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />}
     </div>
   )
 }
