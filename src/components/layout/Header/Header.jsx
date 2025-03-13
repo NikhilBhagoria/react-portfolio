@@ -79,7 +79,7 @@ const Header = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {HeaderMenu.map((item, index) => (
-                  <a key={index} href={item.link} className={`text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] px-3 py-2 rounded-md text-sm font-medium transition-colors `}>{item.name}</a>
+                  <a key={index} href={item.link} className={`text-[var(--color-header-text)] hover:text-[var(--color-header-hover)] px-3 py-2 rounded-md text-sm font-medium transition-colors `}>{item.name}</a>
                 ))}
               </div>
             </div>
