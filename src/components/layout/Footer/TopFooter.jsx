@@ -34,7 +34,7 @@ const TopFooter = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.link} className="text-[var(--color-light-accent)] hover:text-[var(--color-accent)] transition-colors">{link.name}</a>
+                  <a href={link.link} className="text-[var(--color-footer-text)] hover:text-[var(--color-footer-hover)] transition-colors">{link.name}</a>
                 </li>
               ))}
             </ul>
@@ -57,7 +57,9 @@ const TopFooter = () => {
                 <svg className="h-5 w-5 mr-2 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
-                nikhilkumar2450@gmail.com
+                <a href="mailto:nikhilkumar2450@gmail.com?subject=Inquiry%20from%20Portfolio">
+                  nikhilkumar2450@gmail.com
+                </a>
               </li>
               <li className="flex items-center text-[var(--color-light-accent)]">
                 <svg className="h-5 w-5 mr-2 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
