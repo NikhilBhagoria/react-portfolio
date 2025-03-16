@@ -369,7 +369,7 @@ const Projects = () => {
         {/* View All Projects Link */}
         <div className="mt-16 text-center">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/NikhilBhagoria"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3 text-lg font-medium rounded-full text-[var(--color-dark)] bg-[var(--color-light)] hover:bg-[var(--color-light-accent)] transition-colors duration-300"

@@ -9,9 +9,16 @@
     --color-header-text: #000000;
     --color-header-hover: #00a4a6;
 
+    /* Title Color */
+    --color-title-text: #111111;
+
+    /* Gradient */
+    --color-gradient-start: #1E90FF;
+    --color-gradient-end: #FF007A;
 
     /* Footer Text Colors */
-    --color-footer-text: #ffffff;
+    --color-footer-background: #111111;
+    --color-footer-text: #d6d6d6;
     --color-footer-hover: #00a4a6;
 
     /* Text colors */
@@ -41,8 +48,8 @@
     --color-button-hover: #1668a0;
     --color-card-bg: #ffffff;
     --color-card-hover: rgba(203, 234, 166, 0.2);
-    --color-gradient-start: var(--color-accent);
-    --color-gradient-end: var(--color-dark);
+    /* --color-gradient-start: var(--color-accent);
+    --color-gradient-end: var(--color-dark); */
 }
 
 .scrollbar-hide {
