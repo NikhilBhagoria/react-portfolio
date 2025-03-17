@@ -15,14 +15,15 @@ const Main = () => {
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate__animated animate__fadeInUp">
               <div className="rounded-md shadow">
-                <a href="#contact" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--color-button)] hover:bg-[var(--color-button-hover)] md:py-4 md:text-lg md:px-10 transform hover:scale-105 transition-transform duration-300 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_rgba(255,255,255,0.1)_inset]">
+                <a href="#contact" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#000000] hover:bg-[#333333] md:py-4 md:text-lg md:px-10 transform hover:scale-105 transition-transform duration-300">
+                  {/* <a href="#contact" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#000000] hover:bg-[#333333] md:py-4 md:text-lg md:px-10 transform hover:scale-105 transition-transform duration-300 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset,0px_-1px_2px_0px_rgba(255,255,255,0.1)_inset]"> */}
                   Get in touch
-                  <span className='absolute inset-x-0 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-px w-3/4 mx-auto'></span>
-                  <span className='absolute inset-x-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-[4px] w-full mx-auto blur-sm'></span>
+                  {/* <span className='absolute inset-x-0 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-px w-3/4 mx-auto'></span>
+                  <span className='absolute inset-x-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-[4px] w-full mx-auto blur-sm'></span> */}
                 </a>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
-                <a href="#projects" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--color-accent-primary)] hover:bg-[#e64e52] md:py-4 md:text-lg md:px-10 transform hover:scale-105 transition-transform duration-300">
+                <a href="#projects" className="group relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--color-accent-primary)] hover:bg-[var(--color-accent-hover)] md:py-4 md:text-lg md:px-10 transform hover:scale-105 transition-transform duration-300">
                   View Projects
                   <span className='absolute inset-x-0 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-px w-3/4 mx-auto'></span>
                   <span className='absolute inset-x-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -bottom-px bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-primary)] to-transparent h-[4px] w-full mx-auto blur-sm'></span>

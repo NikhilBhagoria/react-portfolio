@@ -372,7 +372,7 @@ const Projects = () => {
             href="https://github.com/NikhilBhagoria"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 text-lg font-medium rounded-full text-[var(--color-dark)] bg-[var(--color-light)] hover:bg-[var(--color-light-accent)] transition-colors duration-300"
+            className="inline-flex items-center px-4 py-2 md:px-8 md:py-3 text-sm md:text-lg font-semibold md:font-medium rounded-full shadow-sm  text-[var(--color-button-text)] bg-[var(--color-button-bg)] border-2 border-[var(--color-button-border)] transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
           >
             View All Projects on GitHub
             <svg className="ml-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

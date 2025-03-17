@@ -2,6 +2,34 @@ import React from 'react'
 import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 
 const Experience = () => {
+  const experience = [
+    {
+      id: 1,
+      title: 'React Developer',
+      company: 'EXTENSIVE HOST PVT. LTD',
+      duration: 'Sep 2023 - Oct 2024',
+      description: 'Developed and maintained multiple React.js applications',
+      responsibilities: [
+        'Developed and maintained multiple React.js applications',
+        'Implemented state management using Redux Toolkit',
+        'Created reusable components and custom hooks',
+        'Integrated REST APIs and GraphQL endpoints',
+      ]
+    },
+    {
+      id: 2,
+      title: 'React Developer Intern',
+      company: 'NEERJA SOFTWARES PVT. LTD',
+      duration: 'Feb 2023 - July 2023',
+      description: 'Assisted in developing UI components using React.js',
+      responsibilities: [
+        'Assisted in developing UI components using React.js',
+        'Worked with Material UI and Tailwind CSS',
+        'Implemented form validation using Formik',
+        'Collaborated with team using Git workflow',
+      ]
+    }
+  ]
   return (
     <div>
       <section id="experience" className="py-20 ">
@@ -13,17 +41,17 @@ const Experience = () => {
 
             <div className="space-y-12">
               <div className="relative animate__animated animate__fadeInLeft">
-                <div className="flex items-center w-full my-6 -ml-1.5">
+                <div className="flex items-center w-full my-6">
                   <div className="w-1/2 pr-8 text-right">
                     <div className="p-6 bg-[var(--color-card-bg)] rounded-lg shadow-lg">
                       <h3 className="text-xl font-bold text-[var(--color-text-primary)]">React Developer</h3>
                       <p className="text-[var(--color-accent-primary)] font-semibold">EXTENSIVE HOST PVT. LTD</p>
                       <p className="text-[var(--color-text-secondary)]">Sep 2023 - Oct 2024</p>
                       <ul className="mt-4 text-[var(--color-text-secondary)] list-disc list-inside space-y-2">
-                        <li>Developed and maintained multiple React.js applications</li>
-                        <li>Implemented state management using Redux Toolkit</li>
-                        <li>Created reusable components and custom hooks</li>
-                        <li>Integrated REST APIs and GraphQL endpoints</li>
+                        <li className='text-sm'>Developed and maintained multiple React.js applications</li>
+                        <li className='text-sm'>Implemented state management using Redux Toolkit</li>
+                        <li className='text-sm'>Created reusable components and custom hooks</li>
+                        <li className='text-sm'>Integrated REST APIs and GraphQL endpoints</li>
                       </ul>
                     </div>
                   </div>
@@ -37,7 +65,7 @@ const Experience = () => {
               </div>
 
               <div className="relative animate__animated animate__fadeInRight">
-                <div className="flex items-center w-full my-6 -ml-1.5">
+                <div className="flex items-center w-full my-6">
                   <div className="w-1/2"></div>
                   <div className="z-20 flex items-center justify-center w-8 h-8 bg-[var(--color-accent-primary)] rounded-full">
                     <svg className="w-5 h-5 text-[var(--color-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,10 +78,10 @@ const Experience = () => {
                       <p className="text-[var(--color-accent-primary)] font-semibold">NEERJA SOFTWARES PVT. LTD</p>
                       <p className="text-[var(--color-text-secondary)]">Feb 2023 - July 2023</p>
                       <ul className="mt-4 text-[var(--color-text-secondary)] list-disc list-inside space-y-2">
-                        <li>Assisted in developing UI components using React.js</li>
-                        <li>Worked with Material UI and Tailwind CSS</li>
-                        <li>Implemented form validation using Formik</li>
-                        <li>Collaborated with team using Git workflow</li>
+                        <li className='text-sm'>Assisted in developing UI components using React.js</li>
+                        <li className='text-sm'>Worked with Material UI and Tailwind CSS</li>
+                        <li className='text-sm'>Implemented form validation using Formik</li>
+                        <li className='text-sm'>Collaborated with team using Git workflow</li>
                       </ul>
                     </div>
                   </div>

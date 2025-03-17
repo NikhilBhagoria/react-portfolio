@@ -23,7 +23,7 @@ const SocialIcon = ({ platform, url }) => {
   return (
     <button
       onClick={handleClick}
-      className="text-[var(--color-light-accent)] hover:text-[var(--color-accent)] cursor-pointer"
+      className="text-[#111111] hover:text-[var(--color-accent)] cursor-pointer"
       aria-label={`Visit ${platform} Profile`}
     >
       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

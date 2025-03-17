@@ -16,6 +16,12 @@
     --color-gradient-start: #1E90FF;
     --color-gradient-end: #FF007A;
 
+    /* Skill Section */
+    --bg-unfilled-bar: #4A4A4A;
+    --color-gradient-skill-start: #A3D39C;
+    --color-gradient-skill-end: #28A745;
+    --color-skill-text: #007BFF;
+
     /* Footer Text Colors */
     --color-footer-background: #111111;
     --color-footer-text: #d6d6d6;
@@ -35,7 +41,9 @@
     /*#a079f5*/
     --color-light-accent: #ffffff;
     --color-mid: #c0d684;
-    --color-accent: #ff595e;
+    /* --color-accent: #ff595e; */
+    --color-accent: #1E90FF;
+    --color-accent-hover: #104E8B;
     --color-dark: #000000;
 
     /* Functional colors */

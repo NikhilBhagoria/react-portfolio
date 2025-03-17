@@ -111,10 +111,10 @@ const Skills = () => {
                     <div key={skillIndex} className="skill-item">
                       <div className="flex justify-between mb-1">
                         <span className="text-[var(--color-text-primary)]">{skillItem.name}</span>
-                        <span className="text-[var(--color-accent-primary)]">{skillItem.percentage}%</span>
+                        <span className="text-[var(--color-skill-text)]">{skillItem.percentage}%</span>
                       </div>
-                      <div className="w-full bg-[var(--color-dark)] rounded-full h-2">
-                        <div className={`bg-[var(--color-accent-primary)] h-2 rounded-full`} style={{ width: `${skillItem.percentage}%`, background: 'linear-gradient(to right, var(--color-light-accent), var(--color-mid))' }}></div>
+                      <div className="w-full bg-[var(--bg-unfilled-bar)] rounded-full h-2">
+                        <div className={`bg-[var(--color-accent-primary)] h-2 rounded-full`} style={{ width: `${skillItem.percentage}%`, background: 'linear-gradient(90deg, var(--color-gradient-skill-start), var(--color-gradient-skill-end))' }}></div>
                       </div>
                     </div>
                   ))}
