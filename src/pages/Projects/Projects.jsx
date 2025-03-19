@@ -98,31 +98,31 @@ const projectsData = [
   },
   {
     id: 10,
-    title: "Language Learning App",
+    title: "Virtualr",
     description: "Interactive language learning platform with speech recognition and progress tracking.",
     technologies: ["React.js", "Node.js", "Web Speech API", "MongoDB"],
-    demoLink: "https://language-learning-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/language-learning-app",
+    demoLink: "https://dulcet-chebakia-a1b7f1.netlify.app/",
+    githubLink: "https://github.com/NikhilBhagoria/virtualr",
     featured: false,
     imageUrl: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
   },
   {
     id: 11,
-    title: "Job Board Portal",
+    title: "Spotify",
     description: "Job listing and application platform with resume builder and company profiles.",
     technologies: ["React.js", "Express.js", "PostgreSQL", "AWS S3"],
-    demoLink: "https://job-board-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/job-board-portal",
+    demoLink: "https://guileless-cat-c5f272.netlify.app/",
+    githubLink: "https://github.com/NikhilBhagoria/spotify-clone",
     featured: false,
     imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
   },
   {
     id: 12,
-    title: "Cryptocurrency Dashboard",
+    title: "Fitness Website",
     description: "Real-time cryptocurrency tracking with price alerts, portfolio management, and market analysis.",
     technologies: ["React.js", "CoinGecko API", "Socket.io", "Chart.js"],
-    demoLink: "https://crypto-dashboard-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/crypto-dashboard",
+    demoLink: "https://kpfitness.netlify.app/",
+    githubLink: "https://github.com/NikhilBhagoria/fitness-Website",
     featured: false,
     imageUrl: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
   }
