@@ -11,7 +11,8 @@ const Main = () => {
               <span className="block text-[var(--color-text-primary)]">Building Modern Web Solutions</span>
             </h1>
             <p className="mt-3 text-base text-[var(--color-text-secondary)] sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate__animated animate__fadeIn">
-              Passionate developer with 1.2 years of experience in creating responsive and dynamic web applications using React.js and modern technologies.
+              {/* Passionate developer with 1.2 years of experience in creating responsive and dynamic web applications using React.js and modern technologies. */}
+              {/* Dream big, build bigger. */}
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate__animated animate__fadeInUp">
               <div className="rounded-md shadow">

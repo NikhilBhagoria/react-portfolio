@@ -8,123 +8,83 @@ import { motion } from 'framer-motion'
 const projectsData = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    description: "A comprehensive admin dashboard with analytics, order management, and inventory tracking.",
-    technologies: ["React.js", "Redux Toolkit", "Material UI", "Chart.js"],
-    demoLink: "https://ecommerce-dashboard-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/ecommerce-dashboard",
-    featured: true,
-    imageUrl: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
+    title: "Interview Scheduler",
+    description: "Search and discover recipes based on ingredients, dietary restrictions, and cuisine preferences.",
+    technologies: ["React.js", "Spoonacular API", "Styled Components", "Firebase"],
+    demoLink: "https://clinquant-donut-876ecc.netlify.app/",
+    githubLink: "https://github.com/yourusername/recipe-finder",
+    featured: false,
+    imageUrl: "/interview-scheduler.png"
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management platform with real-time updates and team features.",
-    technologies: ["React.js", "GraphQL", "Tailwind CSS", "PostgreSQL"],
-    demoLink: "https://task-management-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/task-management",
-    featured: true,
-    imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+    title: "Weather",
+    description: "Track workouts, set goals, and monitor progress with detailed analytics and visualizations.",
+    technologies: ["React Native", "Redux", "Firebase", "D3.js"],
+    demoLink: "https://bejewelled-jalebi-b4c135.netlify.app/",
+    githubLink: "https://github.com/yourusername/fitness-tracker",
+    featured: false,
+    imageUrl: "/Weather.png"
   },
   {
     id: 3,
-    title: "Social Media Platform",
-    description: "A social networking app with real-time chat and post features.",
-    technologies: ["React.js", "Redux", "Prisma", "Docker"],
-    demoLink: "https://social-media-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/social-media-platform",
-    featured: true,
-    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+    title: "Dinemetrics - Restaurant Analytics Dashboard",
+    description: "Personal finance application for budget planning, expense tracking, and financial goal setting.",
+    technologies: ["Vue.js", "Vuex", "MongoDB", "Express.js"],
+    demoLink: "https://lucky-bavarois-9360c2.netlify.app/",
+    githubLink: "https://github.com/yourusername/budget-management",
+    featured: false,
+    imageUrl: "/Dinemetrics.png"
   },
   {
     id: 4,
-    title: "Weather Forecast App",
-    description: "Real-time weather forecasting application with location-based services and interactive maps.",
-    technologies: ["React.js", "OpenWeather API", "Leaflet", "Tailwind CSS"],
-    demoLink: "https://weather-forecast-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/weather-forecast",
+    title: "Financial Dashboard",
+    description: "AI-powered movie recommendation engine based on user preferences and viewing history.",
+    technologies: ["Python", "TensorFlow", "Flask", "React.js"],
+    demoLink: "https://stalwart-brigadeiros-e290e3.netlify.app",
+    githubLink: "https://github.com/yourusername/movie-recommendation",
     featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    imageUrl: "/Financial.png"
   },
   {
     id: 5,
-    title: "Recipe Finder",
-    description: "Search and discover recipes based on ingredients, dietary restrictions, and cuisine preferences.",
-    technologies: ["React.js", "Spoonacular API", "Styled Components", "Firebase"],
-    demoLink: "https://recipe-finder-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/recipe-finder",
+    title: "Youtube Clone",
+    description: "Platform for buying, selling, and renting properties with virtual tours and mortgage calculators.",
+    technologies: ["Next.js", "MongoDB", "Mapbox", "Tailwind CSS"],
+    demoLink: "https://clinquant-chebakia-d8a963.netlify.app/",
+    githubLink: "https://github.com/yourusername/real-estate-marketplace",
     featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    imageUrl: "/project4.png"
   },
   {
     id: 6,
-    title: "Fitness Tracker",
-    description: "Track workouts, set goals, and monitor progress with detailed analytics and visualizations.",
-    technologies: ["React Native", "Redux", "Firebase", "D3.js"],
-    demoLink: "https://fitness-tracker-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/fitness-tracker",
-    featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-  },
-  {
-    id: 7,
-    title: "Budget Management Tool",
-    description: "Personal finance application for budget planning, expense tracking, and financial goal setting.",
-    technologies: ["Vue.js", "Vuex", "MongoDB", "Express.js"],
-    demoLink: "https://budget-management-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/budget-management",
-    featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80"
-  },
-  {
-    id: 8,
-    title: "Movie Recommendation System",
-    description: "AI-powered movie recommendation engine based on user preferences and viewing history.",
-    technologies: ["Python", "TensorFlow", "Flask", "React.js"],
-    demoLink: "https://movie-recommendation-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/movie-recommendation",
-    featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80"
-  },
-  {
-    id: 9,
-    title: "Real Estate Marketplace",
-    description: "Platform for buying, selling, and renting properties with virtual tours and mortgage calculators.",
-    technologies: ["Next.js", "MongoDB", "Mapbox", "Tailwind CSS"],
-    demoLink: "https://real-estate-demo.netlify.app",
-    githubLink: "https://github.com/yourusername/real-estate-marketplace",
-    featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1073&q=80"
-  },
-  {
-    id: 10,
     title: "Virtualr",
     description: "Interactive language learning platform with speech recognition and progress tracking.",
     technologies: ["React.js", "Node.js", "Web Speech API", "MongoDB"],
     demoLink: "https://dulcet-chebakia-a1b7f1.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/virtualr",
     featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+    imageUrl: "/project3.png"
   },
   {
-    id: 11,
+    id: 7,
     title: "Spotify",
     description: "Job listing and application platform with resume builder and company profiles.",
     technologies: ["React.js", "Express.js", "PostgreSQL", "AWS S3"],
     demoLink: "https://guileless-cat-c5f272.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/spotify-clone",
     featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+    imageUrl: "/project2.png"
   },
   {
-    id: 12,
+    id: 8,
     title: "Fitness Website",
     description: "Real-time cryptocurrency tracking with price alerts, portfolio management, and market analysis.",
     technologies: ["React.js", "CoinGecko API", "Socket.io", "Chart.js"],
     demoLink: "https://kpfitness.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/fitness-Website",
     featured: false,
-    imageUrl: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+    imageUrl: "/project1.png"
   }
 ];
 
@@ -185,8 +145,8 @@ const Projects = () => {
         <div className="flex justify-between items-center mb-8">
           <div className="text-[var(--color-text-primary)] text-xl font-serif">
             <span className="font-light">Projects</span>
-            <span className="mx-2 opacity-50">/</span>
-            <span className="font-medium">{filter === 'all' ? 'All' : filter === 'featured' ? 'Featured' : filter}</span>
+            {/* <span className="mx-2 opacity-50">/</span> */}
+            {/* <span className="font-medium">{filter === 'all' ? 'All' : filter === 'featured' ? 'Featured' : filter}</span> */}
           </div>
           <div className="flex items-center space-x-4">
             <button
@@ -221,7 +181,7 @@ const Projects = () => {
         </div>
 
         {/* Filter Controls */}
-        <div className="mb-12 flex flex-wrap justify-start gap-4">
+        {/* <div className="mb-12 flex flex-wrap justify-start gap-4">
           <button
             onClick={() => setFilter('all')}
             className={`px-6 py-2 rounded-full transition-all ${filter === 'all'
@@ -237,10 +197,10 @@ const Projects = () => {
               : 'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-text-secondary)] hover:border-[var(--color-text-primary)]'}`}
           >
             Featured
-          </button>
+          </button> */}
 
           {/* Technology filters */}
-          {allTechnologies.slice(0, 5).map((tech, index) => (
+          {/* {allTechnologies.slice(0, 5).map((tech, index) => (
             <button
               key={index}
               onClick={() => setFilter(tech)}
@@ -250,10 +210,10 @@ const Projects = () => {
             >
               {tech}
             </button>
-          ))}
+          ))} */}
 
           {/* More filters dropdown if needed */}
-          {allTechnologies.length > 5 && (
+          {/* {allTechnologies.length > 5 && (
             <div className="relative">
               <select
                 onChange={(e) => setFilter(e.target.value)}
@@ -273,7 +233,7 @@ const Projects = () => {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* Projects Grid - Modern Image-focused Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
