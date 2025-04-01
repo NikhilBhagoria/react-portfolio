@@ -7,12 +7,22 @@ import { motion } from 'framer-motion'
 // Project data array with 10+ projects and image URLs
 const projectsData = [
   {
+    id: 5,
+    title: "Youtube Clone",
+    description: "Platform for buying, selling, and renting properties with virtual tours and mortgage calculators.",
+    technologies: ["Next.js", "MongoDB", "Mapbox", "Tailwind CSS"],
+    demoLink: "https://clinquant-chebakia-d8a963.netlify.app/",
+    githubLink: "https://github.com/yourusername/real-estate-marketplace",
+    featured: false,
+    imageUrl: "/project4.png"
+  },
+  {
     id: 1,
     title: "Interview Scheduler",
     description: "Search and discover recipes based on ingredients, dietary restrictions, and cuisine preferences.",
     technologies: ["React.js", "Spoonacular API", "Styled Components", "Firebase"],
     demoLink: "https://clinquant-donut-876ecc.netlify.app/",
-    githubLink: "https://github.com/yourusername/recipe-finder",
+    githubLink: "https://github.com/NikhilBhagoria/Interview-Scheduler",
     featured: false,
     imageUrl: "/interview-scheduler.png"
   },
@@ -22,7 +32,7 @@ const projectsData = [
     description: "Track workouts, set goals, and monitor progress with detailed analytics and visualizations.",
     technologies: ["React Native", "Redux", "Firebase", "D3.js"],
     demoLink: "https://bejewelled-jalebi-b4c135.netlify.app/",
-    githubLink: "https://github.com/yourusername/fitness-tracker",
+    githubLink: "https://github.com/NikhilBhagoria/react-weather-dashboard",
     featured: false,
     imageUrl: "/Weather.png"
   },
@@ -32,7 +42,7 @@ const projectsData = [
     description: "Personal finance application for budget planning, expense tracking, and financial goal setting.",
     technologies: ["Vue.js", "Vuex", "MongoDB", "Express.js"],
     demoLink: "https://lucky-bavarois-9360c2.netlify.app/",
-    githubLink: "https://github.com/yourusername/budget-management",
+    githubLink: "https://github.com/NikhilBhagoria/Sales-Analytics-Dashboard",
     featured: false,
     imageUrl: "/Dinemetrics.png"
   },
@@ -42,19 +52,9 @@ const projectsData = [
     description: "AI-powered movie recommendation engine based on user preferences and viewing history.",
     technologies: ["Python", "TensorFlow", "Flask", "React.js"],
     demoLink: "https://stalwart-brigadeiros-e290e3.netlify.app",
-    githubLink: "https://github.com/yourusername/movie-recommendation",
+    githubLink: "https://github.com/NikhilBhagoria/Soar_Frontend_Task",
     featured: false,
     imageUrl: "/Financial.png"
-  },
-  {
-    id: 5,
-    title: "Youtube Clone",
-    description: "Platform for buying, selling, and renting properties with virtual tours and mortgage calculators.",
-    technologies: ["Next.js", "MongoDB", "Mapbox", "Tailwind CSS"],
-    demoLink: "https://clinquant-chebakia-d8a963.netlify.app/",
-    githubLink: "https://github.com/yourusername/real-estate-marketplace",
-    featured: false,
-    imageUrl: "/project4.png"
   },
   {
     id: 6,
