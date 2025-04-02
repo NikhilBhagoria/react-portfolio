@@ -260,8 +260,8 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <h3 className="text-3xl font-serif font-bold text-[var(--color-text-primary)] mb-3">{project.title}</h3>
-                <p className="text-[var(--color-text-secondary)] mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                <h3 className="text-3xl font-serif font-bold text-[var(--color-project-text)] mb-3">{project.title}</h3>
+                <p className="text-[var(--color-project-text)] mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
                   {project.description}
                 </p>
 
