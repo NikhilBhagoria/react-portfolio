@@ -23,7 +23,10 @@
     --color-skill-text: #007BFF;
 
     /* Project */
-    --color-project-text:#00a4a6;
+    --color-project-text:#333333;
+    --color-project-desc:#B0BEC5;
+    --color-project-btn:#333333;
+    --color-project-btn-text:#ffffff;
 
     /* Footer Text Colors */
     --color-footer-background: #111111;

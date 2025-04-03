@@ -74,7 +74,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <span className="text-[var(--color-dark)] font-bold text-xl">Portfolio</span>
+              <span className="text-[var(--color-dark)] font-bold text-xl max-w-md"><img src='/logo.svg' alt='logo' className='md:max-w-md max-w-sm md:w-11 w-9' /></span>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">

@@ -260,13 +260,13 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <h3 className="text-3xl font-serif font-bold text-[var(--color-project-text)] mb-3">{project.title}</h3>
-                <p className="text-[var(--color-project-text)] mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                {/* <h3 className="text-3xl font-serif font-bold text-[var(--color-project-text)] mb-3">{project.title}</h3>
+                <p className="text-[var(--color-project-desc)] mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
                   {project.description}
-                </p>
+                </p> */}
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                {/* <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <span
                       key={techIndex}
@@ -280,7 +280,7 @@ const Projects = () => {
                       +{project.technologies.length - 3} more
                     </span>
                   )}
-                </div>
+                </div> */}
 
                 {/* Links */}
                 <div className="flex space-x-4">
@@ -288,7 +288,7 @@ const Projects = () => {
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-[var(--color-dark)] bg-[var(--color-light)] px-4 py-2 rounded-full hover:bg-[var(--color-light-accent)] transition-colors"
+                    className="flex items-center text-[var(--color-project-btn-text)] bg-[var(--color-project-btn)] px-4 py-2 rounded-full hover:bg-[var(--color-light)]/20 transition-colors"
                   >
                     <FiExternalLink className="mr-2" />
                     <span>Live Demo</span>
@@ -297,7 +297,7 @@ const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-[var(--color-text-primary)] bg-[var(--color-light)]/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-[var(--color-light)]/20 transition-colors"
+                    className="flex items-center text-[var(--color-project-btn-text)] bg-[var(--color-project-btn)] backdrop-blur-sm px-4 py-2 rounded-full hover:bg-[var(--color-light)]/20 transition-colors"
                   >
                     <FiGithub className="mr-2" />
                     <span>GitHub</span>

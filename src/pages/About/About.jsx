@@ -10,12 +10,12 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-[var(--color-text-primary)]">
             <div className="space-y-6 text-lg animate__animated animate__fadeInLeft">
               <p className="leading-relaxed">
-                I am a passionate ReactJS Developer with 1.2 years of hands-on experience in building modern web applications. My journey in web development has been focused on creating efficient, scalable, and user-friendly solutions.
+              I am a passionate ReactJS Developer with hands-on experience in building modern, efficient, scalable, and user-friendly web applications. My journey in web development has been dedicated to delivering high-quality front-end solutions that prioritize performance and user experience.
               </p>
               <p className="leading-relaxed">
                 Throughout my career, I've developed a strong foundation in front-end development, with expertise in React.js and its ecosystem. I specialize in building responsive user interfaces, implementing state management solutions with Redux Toolkit, and creating seamless user experiences.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              {/* <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <div className="flex items-center">
                   <span className="text-[var(--color-accent-primary)] mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,7 +32,7 @@ const About = () => {
                   </span>
                   <span>5+ Projects Completed</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="lg:ml-12 animate__animated animate__fadeInRight">
