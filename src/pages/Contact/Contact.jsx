@@ -6,7 +6,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   const handleChange = (e) => {
@@ -28,7 +27,6 @@ const Contact = () => {
                 <form id="contactForm" className="space-y-6" onSubmit={handleSubmit}>
                   <LabelledInput label="Name" type="text" value={formData.name} onChange={handleChange} />
                   <LabelledInput label="Email" type="email" value={formData.email} onChange={handleChange} />
-                  <LabelledInput label="Subject" type="text" value={formData.subject} onChange={handleChange} />
                   <LabelledInput label="Message" type="textarea" value={formData.message} onChange={handleChange} />
                   <div>
                     <button
