@@ -5,6 +5,7 @@ import Experience from './pages/Experience/Experience';
 import Projects from './pages/Projects/Projects';
 import Contact from './pages/Contact/Contact';
 import Footer from './components/layout/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           style={{ backgroundImage: 'url(bg-image.png)' }}>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   )
 }

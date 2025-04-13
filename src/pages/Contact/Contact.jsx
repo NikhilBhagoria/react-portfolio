@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import SocialIcon from '../../components/common/SocialIcon/SocialIcon';
 import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle';
+import axios from "axios";
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,12 +10,32 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const handleChange = (e) => {
+  const [loading,setLoading] = useState(false);
+  const handleChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    try {
+      await axios.post(import.meta.env.VITE_BACKEND_API,{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+        body: JSON.stringify(formData)
+      });
+      toast.success('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+    setLoading(false);
+    console.log("err",error);
+      toast.error('Failed to send message.');
+    }
+    finally{
+    setLoading(false);
+    }
   };
   return (
     <div>
@@ -25,17 +47,19 @@ const Contact = () => {
             <div className="animate__animated animate__fadeInLeft">
               <div className="bg-[var(--color-card-bg)] p-8 rounded-lg shadow-lg">
                 <form id="contactForm" className="space-y-6" onSubmit={handleSubmit}>
-                  <LabelledInput label="Name" type="text" value={formData.name} onChange={handleChange} />
-                  <LabelledInput label="Email" type="email" value={formData.email} onChange={handleChange} />
-                  <LabelledInput label="Message" type="textarea" value={formData.message} onChange={handleChange} />
+                  <LabelledInput label="name" type="text" value={formData.name} onChange={handleChange} />
+                  <LabelledInput label="email" type="email" value={formData.email} onChange={handleChange} />
+                  <LabelledInput label="message" type="textarea" value={formData.message} onChange={handleChange} />
                   <div>
                     <button
                       type="submit"
-                      className="w-full group flex justify-center items-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-[var(--color-button-text)] bg-[var(--color-button-bg)] border-2 border-[var(--color-button-border)] transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
-                      disabled={false}
+                      className="w-full group flex justify-center items-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-[var(--color-button-text)] bg-[var(--color-button-bg)] border-2 border-[var(--color-button-border)] transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      disabled={loading}
                     >
+                      {loading ? <div className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></div> : 
+                      <>
                       <span className="transition-transform duration-300 group-hover:mr-1 group-hover:border-b-2 group-hover:border-[var(--color-button-border)]">
-                        Send Message
+                      Send Message
                       </span>
                       <svg
                         className="w-4 h-4 opacity-0 -mr-6 group-hover:mr-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
@@ -50,6 +74,7 @@ const Contact = () => {
                           d="M14 5l7 7m0 0l-7 7m7-7H3"
                         />
                       </svg>
+                      </>}
                     </button>
                   </div>
                 </form>
