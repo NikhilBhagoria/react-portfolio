@@ -3,9 +3,19 @@ import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 import ProjectLinks from '../../components/common/ProjectLinks/ProjectLinks'
 import { FiArrowLeft, FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi'
 import { motion } from 'framer-motion'
-
+import Blogify from "../../assets/Blogify.png"
 // Project data array with 10+ projects and image URLs
 const projectsData = [
+  {
+    id: 6,
+    title:"Blogify",
+    description:"Developed Blogify, a full-stack blogging web application, inspired by leading platforms like Medium. Implemented secure authentication with JWT, ensured data integrity with TypeScript and Zod, and deployed the app using Vercel (frontend) and Cloudflare Workers (backend) for scalability and availability.",
+    technologies:["React", "PostgreSQL", "Prisma", "Hono", "JWT", "TypeScript", "Zod", "Tailwind CSS", "Vercel", "Cloudflare Workers"],
+    demoLink:"https://blogify-plum-psi.vercel.app/",
+    githubLink:"https://github.com/NikhilBhagoria/medium-blog",
+    featured:false,
+    imageUrl:Blogify
+  },
   {
     id: 5,
     title: "Youtube Clone",
