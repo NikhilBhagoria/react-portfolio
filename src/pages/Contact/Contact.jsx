@@ -47,9 +47,9 @@ const Contact = () => {
             <div className="animate__animated animate__fadeInLeft">
               <div className="bg-[var(--color-card-bg)] p-8 rounded-lg shadow-lg">
                 <form id="contactForm" className="space-y-6" onSubmit={handleSubmit}>
-                  <LabelledInput label="name" type="text" value={formData.name} onChange={handleChange} />
-                  <LabelledInput label="email" type="email" value={formData.email} onChange={handleChange} />
-                  <LabelledInput label="message" type="textarea" value={formData.message} onChange={handleChange} />
+                  <LabelledInput name="Name" label="name" type="text" value={formData.name} onChange={handleChange} />
+                  <LabelledInput name="Email" label="email" type="email" value={formData.email} onChange={handleChange} />
+                  <LabelledInput name="Message" label="message" type="textarea" value={formData.message} onChange={handleChange} />
                   <div>
                     <button
                       type="submit"
@@ -140,10 +140,10 @@ const Contact = () => {
   )
 }
 
-const LabelledInput = ({ label, type, value, onChange, required = true }) => {
+const LabelledInput = ({ name, label, type, value, onChange, required = true }) => {
   return (
     <div>
-      <label htmlFor={label} className="block text-sm font-medium text-[var(--color-text-primary)]">{label}</label>
+      <label htmlFor={label} className="block text-sm font-medium text-[var(--color-text-primary)]">{name}</label>
       {type === "textarea" ? <textarea value={value} onChange={onChange} id={label} name={label} required={required} className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />
         : <input type={type} value={value} onChange={onChange} id={label} name={label} required={required} className="mt-1 block w-full px-4 py-3 border border-[var(--color-text-secondary)] bg-white text-[var(--color-text-primary)] rounded-md shadow-sm focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)]" />}
     </div>

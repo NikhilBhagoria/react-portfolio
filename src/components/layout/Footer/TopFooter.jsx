@@ -26,6 +26,10 @@ const TopFooter = () => {
                 platform="Linkedinfooter"
                 url="https://www.linkedin.com/in/nikhilbhagoria/"
               />
+              <SocialIcon
+                platform="Leetcode"
+                url="https://leetcode.com/u/NikhilBhagoria/"
+                />
             </div>
           </div>
 
