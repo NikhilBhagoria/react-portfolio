@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    color:rgba(0, 0, 0, .8);
+}
 /*f3f9d2-cbeaa6-c0d684-ff595e-1982c4 */
 :root {
     /* Background color */
