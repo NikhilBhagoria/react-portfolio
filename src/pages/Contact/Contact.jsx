@@ -18,13 +18,11 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(import.meta.env.VITE_BACKEND_API,{
-        method:"POST",
+      await axios.post(import.meta.env.VITE_BACKEND_API,formData,{
         headers: {
           'Content-Type': 'application/json',
         },
-        withCredentials: true,
-        body: JSON.stringify(formData)
+        withCredentials: true
       });
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
