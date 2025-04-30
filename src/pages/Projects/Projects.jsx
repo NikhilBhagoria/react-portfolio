@@ -12,7 +12,7 @@ const projectsData = [
     description:"Developed Blogify, a full-stack blogging web application, inspired by leading platforms like Medium. Implemented secure authentication with JWT, ensured data integrity with TypeScript and Zod, and deployed the app using Vercel (frontend) and Cloudflare Workers (backend) for scalability and availability.",
     technologies:["React", "PostgreSQL", "Prisma", "Hono", "JWT", "TypeScript", "Zod", "Tailwind CSS", "Vercel", "Cloudflare Workers"],
     demoLink:"https://blogify-plum-psi.vercel.app/",
-    githubLink:"https://github.com/NikhilBhagoria/medium-blog",
+    githubLink:"https://github.com/NikhilBhagoria/blogify",
     featured:false,
     imageUrl:Blogify
   },
