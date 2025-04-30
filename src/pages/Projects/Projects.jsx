@@ -162,7 +162,7 @@ const Projects = () => {
             <button
               onClick={prevPage}
               disabled={currentPage === 1}
-              className={`p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === 1 ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
+              className={`p-2 md:p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === 1 ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
               aria-label="Previous page"
             >
               <FiArrowLeft size={24} />
@@ -182,7 +182,7 @@ const Projects = () => {
             <button
               onClick={nextPage}
               disabled={currentPage === totalPages}
-              className={`p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === totalPages ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
+              className={`p-2 md:p-3 rounded-full border border-[var(--color-text-secondary)] ${currentPage === totalPages ? 'text-[var(--color-text-secondary)] cursor-not-allowed' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-card-hover)]'}`}
               aria-label="Next page"
             >
               <FiArrowRight size={24} />
@@ -253,7 +253,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative h-[500px] rounded-xl overflow-hidden group"
+              className="relative h-[300px] rounded-xl overflow-hidden group"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
