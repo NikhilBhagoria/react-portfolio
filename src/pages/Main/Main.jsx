@@ -1,14 +1,25 @@
 import React from 'react'
+import AnimatedText from '../../components/AnimatedText'
 
 const Main = () => {
   return (
-    <div className='bg-[var(--color-background)]'>
+    <div className='bg-[var(--color-background)] min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden'>
       <section id="hero" className="min-h-[70vh] pt-16 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl tracking-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gradient-start)] to-[var(--color-gradient-end)] sm:text-5xl md:text-6xl animate__animated animate__fadeInDown">
-              <span className="block">ReactJS Developer</span>
-              <span className="block text-[var(--color-text-primary)]">Building Modern Web Solutions</span>
+              {/* <span className="block">ReactJS Developer</span> */}
+              <AnimatedText
+              text="ReactJS Developer"
+              className=" text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gradient-start)] to-[var(--color-gradient-end)]" 
+                delay={300} 
+              />
+              <AnimatedText
+              text="Building Modern Web Solutions"
+              className="bg-clip-text text-[var(--color-text-primary)]" 
+                delay={500} 
+              />
+              {/* <span className="block text-[var(--color-text-primary)]">Building Modern Web Solutions</span> */}
             </h1>
             <p className="mt-3 text-base text-[var(--color-text-secondary)] sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate__animated animate__fadeIn">
               {/* Passionate developer with 1.2 years of experience in creating responsive and dynamic web applications using React.js and modern technologies. */}
