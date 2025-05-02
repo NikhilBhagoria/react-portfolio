@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import AnimatedCounter from './AnimatedCounter';
 
 const SkillBar= ({
   skill,
   percentage,
   color = '',
   delay = 0,
-  style=""
 }) => {
   const [animate, setAnimate] = useState(false);
   const barRef = useRef(null);
@@ -37,7 +37,8 @@ const SkillBar= ({
     <div ref={barRef} className="mb-6">
       <div className="flex justify-between mb-1">
         <span className="text-base font-medium text-gray-900">{skill}</span>
-        <span className="text-sm font-medium text-gray-600">{percentage}%</span>
+        {/* <span className="text-sm font-medium text-gray-600">{percentage}%</span> */}
+      <AnimatedCounter end={percentage} suffix="%" />
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2.5">
         <div 

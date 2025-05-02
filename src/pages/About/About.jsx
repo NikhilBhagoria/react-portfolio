@@ -2,9 +2,9 @@ import React from 'react'
 import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 const About = () => {
   return (
-    <div>
-      <section id="about" className="py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="about">
+        <div className="max-w-7xl mx-auto">
           <HeaderTitle title="About Me" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-[var(--color-text-primary)]">

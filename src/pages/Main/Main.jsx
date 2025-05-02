@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <div className='bg-[var(--color-background)] min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden'>
       <section id="hero" className="min-h-[70vh] pt-16 flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl tracking-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gradient-start)] to-[var(--color-gradient-end)] sm:text-5xl md:text-6xl animate__animated animate__fadeInDown">
               {/* <span className="block">ReactJS Developer</span> */}

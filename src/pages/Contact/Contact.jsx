@@ -36,10 +36,14 @@ const Contact = () => {
     }
   };
   return (
-    <div>
-      <section id="contact" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <HeaderTitle title="Get in Touch" />
+    <div className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="contact" >
+        <div className="max-w-7xl mx-auto">
+          <HeaderTitle title="Get in Touch" style={'space-y-4'} >
+          <p className="text-gray-600 max-w-2xl mx-auto">
+              Have a project in mind or want to discuss opportunities? Feel free to reach out!
+            </p>
+            </HeaderTitle>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="animate__animated animate__fadeInLeft">
