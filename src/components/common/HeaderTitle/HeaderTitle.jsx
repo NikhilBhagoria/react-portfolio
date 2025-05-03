@@ -1,11 +1,11 @@
 import React from 'react'
 import ScrollReveal from '../../ScrollReveal'
 
-const HeaderTitle = ({ title,children,style='' }) => {
+const HeaderTitle = ({ title,children,style='',conten='' }) => {
     return (
         <ScrollReveal>
         <div className={`text-center mb-16 animate__animated animate__fadeIn ${style}`}>
-            <h2 className="text-3xl font-extrabold text-[var(--color-title-text)] sm:text-4xl">
+            <h2 className={`text-3xl font-extrabold text-[var(--color-title-text)] sm:text-4xl relative testing`} data-after={conten}>
                 {title}
             </h2>
             <div className="mt-4 max-w-3xl mx-auto">

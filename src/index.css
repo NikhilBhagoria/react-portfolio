@@ -114,6 +114,38 @@ html {
     }
 }
 
-html {
-    scroll-behavior: smooth;
+.testing::after{
+    content: attr(data-after);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 110px;
+    top: -44px;
+    opacity: .3;
+    color: transparent;
+    z-index: -1;
+    -webkit-text-stroke: 3px #bed8ee;
+}
+
+@media (max-width:767px) {
+    .testing::after{
+        display: none;
+    }
+}
+
+/* Medium devices (min-width: 768px) */
+@media (min-width: 768px) {
+    .testing::after {
+        font-size: 80px;
+        top: -29px;
+    }
+}
+
+/* Large devices (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .testing::after {
+        font-size: 110px;
+        top: -51px;
+    }
 }
