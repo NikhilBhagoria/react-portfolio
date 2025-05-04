@@ -5,7 +5,7 @@ const About = () => {
     <div className="py-20 px-4 sm:px-6 lg:px-8">
       <section id="about">
         <div className="max-w-7xl mx-auto">
-          <HeaderTitle title="About Me" />
+          <HeaderTitle title="About Me" conten='About'/>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-[var(--color-text-primary)]">
             <div className="space-y-6 text-lg animate__animated animate__fadeInLeft">
