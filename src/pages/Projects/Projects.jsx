@@ -149,7 +149,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <HeaderTitle title="My Works" />
+        <HeaderTitle title="My Works" conten='Projects' />
 
         {/* Pagination Controls - Top */}
         <div className="flex justify-between items-center mb-8">

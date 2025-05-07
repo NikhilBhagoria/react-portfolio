@@ -39,7 +39,7 @@ const Contact = () => {
     <div className="py-20 px-4 sm:px-6 lg:px-8">
       <section id="contact" >
         <div className="max-w-7xl mx-auto">
-          <HeaderTitle title="Get in Touch" style={'space-y-4'} >
+          <HeaderTitle title="Get in Touch" style={'space-y-4'} conten='Touch' >
           <p className="text-gray-600 max-w-2xl mx-auto">
               Have a project in mind or want to discuss opportunities? Feel free to reach out!
             </p>

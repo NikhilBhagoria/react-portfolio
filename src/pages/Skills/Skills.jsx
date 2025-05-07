@@ -103,7 +103,7 @@ const Skills = () => {
     <div className="py-20 px-4 sm:px-6 lg:px-8">
       <section id="skills">
         <div className="max-w-7xl mx-auto">
-          <HeaderTitle title="Technical Skills" />
+          <HeaderTitle title="Technical Skills" conten='Skills' />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
               <ScrollReveal key={index} delay={index * 200}>

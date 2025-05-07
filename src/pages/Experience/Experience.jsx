@@ -34,7 +34,7 @@ const Experience = () => {
     <div className="py-20 px-4 sm:px-6 lg:px-8">
       <section id="experience">
         <div className="max-w-7xl mx-auto">
-          <HeaderTitle title="Professional Experience" />
+          <HeaderTitle title="Professional Experience" conten='Experience' />
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--color-accent-primary)]"></div>
