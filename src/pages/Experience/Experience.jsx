@@ -37,12 +37,12 @@ const Experience = () => {
           <HeaderTitle title="Professional Experience" conten='Experience' />
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--color-accent-primary)]"></div>
+            <div className="absolute sm:left-[10%] md:left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--color-accent-primary)]"></div>
 
             <div className="space-y-12">
-              <div className="relative animate__animated animate__fadeInLeft">
-                <div className="flex items-center w-full my-6">
-                  <div className="w-1/2 pr-8 text-right">
+              <div className="relative sm:ml-[22px] md:ml-0 animate__animated animate__fadeInLeft">
+                <div className="md:flex items-center w-full md:my-6 md:flex-row sm:my-0 sm:flex-row-reverse">
+                  <div className="md:w-1/2 md:pr-8 text-right sm:w-full sm:pr-0">
                     <div className="p-6 bg-[var(--color-card-bg)] rounded-lg shadow-lg">
                       <h3 className="text-xl font-bold text-[var(--color-text-primary)]">React Developer</h3>
                       <p className="text-[var(--color-accent-primary)] font-semibold">EXTENSIVE HOST PVT. LTD</p>
