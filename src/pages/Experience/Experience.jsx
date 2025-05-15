@@ -72,7 +72,7 @@ const Experience = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
                   </div>
-                  <div className="w-1/2 pl-8">
+                  <div className="w-1/2 md:pl-8 pl-2">
                     <div className="p-6 bg-[var(--color-card-bg)] rounded-lg shadow-lg">
                       <h3 className="text-xl font-bold text-[var(--color-text-primary)]">ReactJS Developer Intern</h3>
                       <p className="text-[var(--color-accent-primary)] font-semibold">NEERJA SOFTWARES PVT. LTD</p>
