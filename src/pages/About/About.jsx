@@ -3,7 +3,7 @@ import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 const About = () => {
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <section id="about">
+      <section id="about"  className="min-h-screen bg-white scroll-mt-20 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <HeaderTitle title="About Me" conten='About'/>
 

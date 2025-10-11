@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 html {
-    font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
-    color:rgba(0, 0, 0, .8);
+    font-family: "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
+    color: rgba(0, 0, 0, .8);
     scroll-behavior: smooth;
 }
+
 /* Animation classes */
 .animate-in {
     @apply opacity-100 translate-y-0 scale-100;
-  }
-  
+}
+
 /*f3f9d2-cbeaa6-c0d684-ff595e-1982c4 */
 :root {
     /* Background color */
@@ -33,15 +34,16 @@ html {
     --color-skill-text: #007BFF;
 
     /* Project */
-    --color-project-text:#333333;
-    --color-project-desc:#B0BEC5;
-    --color-project-btn:#333333;
-    --color-project-btn-text:#ffffff;
+    --color-project-text: #333333;
+    --color-project-desc: #B0BEC5;
+    --color-project-btn: #333333;
+    --color-project-btn-text: #ffffff;
 
     /* Footer Text Colors */
     --color-footer-background: #111111;
     --color-footer-text: #d6d6d6;
     --color-footer-hover: #00a4a6;
+    --color-footer-hover-link: #007DC5; /* New Color*/
 
     /* Text colors */
     --color-text-primary: #000000;
@@ -114,7 +116,7 @@ html {
     }
 }
 
-.testing::after{
+.testing::after {
     content: attr(data-after);
     position: absolute;
     left: 0;
@@ -129,7 +131,7 @@ html {
 }
 
 @media (max-width:767px) {
-    .testing::after{
+    .testing::after {
         display: none;
     }
 }
@@ -149,3 +151,38 @@ html {
         top: -51px;
     }
 }
+/* Footer Car Animation */
+
+/* @keyframes myfirst {
+    0% {
+        left: -25%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.animate-myfirst {
+    position: absolute;
+    animation: myfirst 5s linear infinite;
+}
+
+.footer_bg {
+    background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigB8iI5tb8WSVBuVUGc9UjjB8O0708X7Fdic_4O1LT4CmLHoiwhanLXiRhe82yw0R7LgACQ2IhZaTY0hhmGi0gYp_Ynb49CVzfmXtYHUVKgXXpWvJ_oYT8cB4vzsnJLe3iCwuzj-w6PeYq_JaHmy_CoGoa6nw0FBo-2xLdOPvsLTh_fmYH2xhkaZ-OGQ/s16000/footer_bg.png') no-repeat scroll center 0;
+    bottom: 0;
+    height: 266px;
+    position: absolute;
+    width: 100%;
+}
+
+
+.animate-car {
+    animation: myfirst 22s linear infinite;
+    background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif') no-repeat 50%;
+    background-size: 100%;
+    bottom: 0;
+    height: 105px;
+    position: absolute;
+    width: 330px;
+} */

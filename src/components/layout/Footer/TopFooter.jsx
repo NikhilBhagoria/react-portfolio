@@ -8,7 +8,7 @@ const TopFooter = () => {
     { name: 'About', link: '#about' },
     { name: 'Projects', link: '#projects' },
     { name: 'Contact', link: '#contact' },
-    { name: 'Privacy Policy', link: '#privacy-policy' },
+    // { name: 'Privacy Policy', link: '#privacy-policy' },
   ]
   return (
     <footer id="footer" className="bg-[var(--color-footer-background)] text-[var(--color-light)]">
@@ -26,10 +26,10 @@ const TopFooter = () => {
                 platform="Linkedinfooter"
                 url="https://www.linkedin.com/in/nikhilbhagoria/"
               />
-              <SocialIcon
+              {/* <SocialIcon
                 platform="Leetcode"
                 url="https://leetcode.com/u/NikhilBhagoria/"
-                />
+                /> */}
             </div>
           </div>
 
@@ -38,7 +38,7 @@ const TopFooter = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.link} className="text-[var(--color-footer-text)] hover:text-[var(--color-footer-hover)] transition-colors">{link.name}</a>
+                  <a href={link.link} className="text-[var(--color-footer-text)] hover:text-[var(--color-footer-hover-link)] transition-colors">{link.name}</a>
                 </li>
               ))}
             </ul>
@@ -61,7 +61,7 @@ const TopFooter = () => {
                 <svg className="h-5 w-5 mr-2 text-[var(--color-gradient-start)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
-                <a className='hover:text-[var(--color-footer-hover)] truncate' href="mailto:nikhilkumar2450@gmail.com?subject=Inquiry%20from%20Portfolio">
+                <a className='hover:text-[var(--color-footer-hover-link)] truncate' href="mailto:nikhilkumar2450@gmail.com?subject=Inquiry%20from%20Portfolio">
                   nikhilkumar2450@gmail.com
                 </a>
               </li>

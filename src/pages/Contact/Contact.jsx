@@ -10,15 +10,15 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(import.meta.env.VITE_BACKEND_API,formData,{
+      await axios.post(import.meta.env.VITE_BACKEND_API, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -27,23 +27,23 @@ const Contact = () => {
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-    setLoading(false);
-    console.log("err",error);
+      setLoading(false);
+      console.log("err", error);
       toast.error('Failed to send message.');
     }
-    finally{
-    setLoading(false);
+    finally {
+      setLoading(false);
     }
   };
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <section id="contact" >
+      <section id="contact" className="min-h-screen bg-white scroll-mt-20 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <HeaderTitle title="Get in Touch" style={'space-y-4'} conten='Touch' >
-          <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Have a project in mind or want to discuss opportunities? Feel free to reach out!
             </p>
-            </HeaderTitle>
+          </HeaderTitle>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="animate__animated animate__fadeInLeft">
@@ -58,25 +58,25 @@ const Contact = () => {
                       className="w-full group flex justify-center items-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-[var(--color-button-text)] bg-[var(--color-button-bg)] border-2 border-[var(--color-button-border)] transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                       disabled={loading}
                     >
-                      {loading ? <div className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></div> : 
-                      <>
-                      <span className="transition-transform duration-300 group-hover:mr-1 group-hover:border-b-2 group-hover:border-[var(--color-button-border)]">
-                      Send Message
-                      </span>
-                      <svg
-                        className="w-4 h-4 opacity-0 -mr-6 group-hover:mr-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                      </>}
+                      {loading ? <div className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></div> :
+                        <>
+                          <span className="transition-transform duration-300 group-hover:mr-1 group-hover:border-b-2 group-hover:border-[var(--color-button-border)]">
+                            Send Message
+                          </span>
+                          <svg
+                            className="w-4 h-4 opacity-0 -mr-6 group-hover:mr-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                          </svg>
+                        </>}
                     </button>
                   </div>
                 </form>
@@ -129,6 +129,10 @@ const Contact = () => {
                           platform="LinkedIn"
                           url="https://www.linkedin.com/in/nikhilbhagoria/"
                         />
+                        {/* <SocialIcon
+                          platform="Leetcode"
+                          url="https://leetcode.com/u/NikhilBhagoria/"
+                        /> */}
                       </div>
                     </div>
                   </div>
