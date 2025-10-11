@@ -3,7 +3,7 @@ import HeaderTitle from '../../components/common/HeaderTitle/HeaderTitle'
 import ProjectLinks from '../../components/common/ProjectLinks/ProjectLinks'
 import { FiArrowLeft, FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi'
 import { motion } from 'framer-motion'
-import Blogify from "../../assets/Blogify.png"
+
 // Project data array with 10+ projects and image URLs
 const projectsData = [
   {
@@ -14,7 +14,7 @@ const projectsData = [
     demoLink:"https://blogify-plum-psi.vercel.app/",
     githubLink:"https://github.com/NikhilBhagoria/blogify",
     featured:false,
-    imageUrl:Blogify
+    imageUrl:"/Blogify.webp"
   },
   {
     id: 5,
@@ -24,7 +24,7 @@ const projectsData = [
     demoLink: "https://clinquant-chebakia-d8a963.netlify.app/",
     githubLink: "https://github.com/yourusername/real-estate-marketplace",
     featured: false,
-    imageUrl: "/project4.png"
+    imageUrl: "/project4.webp"
   },
   {
     id: 1,
@@ -34,7 +34,7 @@ const projectsData = [
     demoLink: "https://clinquant-donut-876ecc.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/Interview-Scheduler",
     featured: false,
-    imageUrl: "/interview-scheduler.png"
+    imageUrl: "/interview-scheduler.webp"
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ const projectsData = [
     demoLink: "https://bejewelled-jalebi-b4c135.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/react-weather-dashboard",
     featured: false,
-    imageUrl: "/Weather.png"
+    imageUrl: "/Weather.webp"
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ const projectsData = [
     demoLink: "https://lucky-bavarois-9360c2.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/Sales-Analytics-Dashboard",
     featured: false,
-    imageUrl: "/Dinemetrics.png"
+    imageUrl: "/Dinemetrics.webp"
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ const projectsData = [
     demoLink: "https://stalwart-brigadeiros-e290e3.netlify.app",
     githubLink: "https://github.com/NikhilBhagoria/Soar_Frontend_Task",
     featured: false,
-    imageUrl: "/Financial.png"
+    imageUrl: "/Financial.webp"
   },
   {
     id: 6,
@@ -74,7 +74,7 @@ const projectsData = [
     demoLink: "https://dulcet-chebakia-a1b7f1.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/virtualr",
     featured: false,
-    imageUrl: "/project3.png"
+    imageUrl: "/project3.webp"
   },
   {
     id: 7,
@@ -84,7 +84,7 @@ const projectsData = [
     demoLink: "https://guileless-cat-c5f272.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/spotify-clone",
     featured: false,
-    imageUrl: "/project2.png"
+    imageUrl: "/project2.webp"
   },
   {
     id: 8,
@@ -94,7 +94,7 @@ const projectsData = [
     demoLink: "https://kpfitness.netlify.app/",
     githubLink: "https://github.com/NikhilBhagoria/fitness-Website",
     featured: false,
-    imageUrl: "/project1.png"
+    imageUrl: "/project1.webp"
   }
 ];
 
@@ -147,7 +147,7 @@ const Projects = () => {
   const allTechnologies = [...new Set(projectsData.flatMap(project => project.technologies))];
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="min-h-screen bg-white scroll-mt-20 md:scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeaderTitle title="My Works" conten='Projects' />
 

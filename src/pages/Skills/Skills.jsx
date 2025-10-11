@@ -101,7 +101,7 @@ const Skills = () => {
   ]
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <section id="skills">
+      <section id="skills" className="min-h-screen bg-white scroll-mt-20 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <HeaderTitle title="Technical Skills" conten='Skills' />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

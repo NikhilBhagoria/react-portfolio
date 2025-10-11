@@ -57,6 +57,19 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const [activeLink, setActiveLink] = useState("");
+
+  // Update active link based on URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveLink(window.location.hash || "#hero"); // default to hero
+    };
+
+    handleHashChange(); // run initially
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
   return (
     // <div className='flex justify-between items-center'>
     //   <div><img src={"/vite.svg"} alt="logo" /></div>
@@ -79,8 +92,19 @@ const Header = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {HeaderMenu.map((item, index) => (
-                  <a key={index} href={item.link} className={`text-[var(--color-header-text)] hover:text-[var(--color-header-hover)] px-3 py-2 rounded-md text-sm font-medium transition-colors `}>{item.name}</a>
-                ))}
+                <a
+                  key={index}
+                  href={item.link}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors 
+                    ${
+                      activeLink === item.link
+                        ? "border-2 border-blue-500 text-blue-600"
+                        : "text-gray-700 hover:text-blue-500"
+                    }`}
+                >
+                  {item.name}
+                </a>
+              ))}
               </div>
             </div>
             <div className="md:hidden">

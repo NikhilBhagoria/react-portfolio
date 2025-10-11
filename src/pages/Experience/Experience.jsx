@@ -32,7 +32,7 @@ const Experience = () => {
   ]
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <section id="experience">
+      <section id="experience" className="min-h-screen bg-white scroll-mt-20 md:scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <HeaderTitle title="Professional Experience" conten='Experience' />
 

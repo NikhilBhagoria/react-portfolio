@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ProjectLinks = ({ demoLink, githubLink }) => {
   const handleClick = (url) => {
