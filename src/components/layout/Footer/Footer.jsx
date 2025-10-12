@@ -1,6 +1,5 @@
 import React from 'react'
 import TopFooter from './TopFooter'
-import cycle from '../../.././assets/cyclist.gif';
 const Footer = () => {
   return (
     <>

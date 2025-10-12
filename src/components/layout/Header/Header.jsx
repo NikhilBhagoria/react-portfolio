@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import Main from '../../../pages/Main/Main'
+import { motion } from "framer-motion";
+
 const Header = () => {
   const HeaderMenu = [
     { name: 'Home', link: '#hero' },
@@ -58,18 +60,20 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("#hero");
 
   // Update active link based on URL hash
   useEffect(() => {
     const handleHashChange = () => {
-      setActiveLink(window.location.hash || "#hero"); // default to hero
+      setActiveLink(window.location.hash || "#hero");
     };
 
-    handleHashChange(); // run initially
+    handleHashChange(); 
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
+
+  
   return (
     // <div className='flex justify-between items-center'>
     //   <div><img src={"/vite.svg"} alt="logo" /></div>
@@ -89,20 +93,33 @@ const Header = () => {
             <div className="flex items-center">
               <span className="text-[var(--color-dark)] font-bold text-xl max-w-md"><img src='/logo.svg' alt='logo' className='md:max-w-md max-w-sm md:w-11 w-9' /></span>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+            <div className="hidden md:block relative">
+              <div className="ml-10 flex items-baseline space-x-4 relative">
                 {HeaderMenu.map((item, index) => (
                 <a
-                  key={index}
+                  key={item.link}
                   href={item.link}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors 
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors 
                     ${
                       activeLink === item.link
-                        ? "border-2 border-blue-500 text-blue-600"
+                        ? "text-blue-600"
                         : "text-gray-700 hover:text-blue-500"
                     }`}
                 >
                   {item.name}
+
+                  {/* Animate border underline using Framer Motion */}
+                  {activeLink === item.link && (
+                    <motion.div
+                      layoutId="underline"
+                      className="absolute left-0 right-0 bottom-0 h-[2px] bg-blue-500 rounded"
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 50,
+                      }}
+                    />
+                  )}
                 </a>
               ))}
               </div>
